@@ -1,0 +1,40 @@
+ivvbmgcxchjvvbn
+gvvok vmegthyjuikkkkmmhngbfvd
+fgresthrjukmjnbfvd cx
+qweryjmgnc cvxczx
+	eqr3awts5kol,kmhn bvc
+jum bzv
+46e5lo, vcxdwdrfty6u78ikol
+23r4y567ili,kmjhnbgvcxswegtyjm 
+askl,kj mnbvc
+efrgthjuk, r
+
+Trivial File Transfer Protocol (TFTP) is a simple, File Transfer Protocol which allows a client
+to get from or put a file onto a remote host. One of its primary uses is in the early stages of
+nodes booting from a local area network. TFTP has been used for this application because it
+is very simple to implement.
+This protocol doesn’t support advanced features that is there in FTP. User authentication,
+directory-listing features are not supported by this protocol. This implementation is done with
+simplicity and user friendliness as main focus.
+TFTP was first standardized in 1981 and the current specification for the protocol can be
+found in RFC 1350
+In this protocol three modes of transfer are currently supported: netascii (This is ascii as
+defined in "USA Standard Code for Information Interchange" with the modifications specified
+in "Telnet Protocol Specification" .) Note that it is 8 bit ascii. The term "netascii" will be used
+throughout this document to mean this particular version of ascii.); octet (This replaces the
+"binary" mode of previous versions of this document.) raw 8 bit bytes; mail, netascii
+characters sent to a user rather than a file. (The mail mode is obsolete and should not be
+implemented or used.) Additional modes can be defined by pairs of cooperating
+
+The client initially sends the Request for read (RRQ) or Write (WRQ). Once the request is
+send the one side sends the data and another side sends the Acknowledgment. So in the
+implementation also these functions are made common for both client and server for code reusability. When the data is sent from one entity to another one the data is read from the file in
+512 bytes chunks. With Each data packet a unique sequence number is chosen in order to
+keep track of the transmission. Following diagram shows the different headers used for the
+TFTP.
+
+When the request is sent from the client to the server, the handshake starts. When the server
+gets the request from the client it checks for errors. The errors are classified into read and
+write errors. The protocol, which happens initially, is called as Initial Connection Protocol. After
+that protocol is completed the data transmission starts between two entities.
+The following diagram shows the initial connections for reading and writing.
